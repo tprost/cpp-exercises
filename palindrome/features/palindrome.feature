@@ -4,7 +4,8 @@ Feature: Palindrome CLI
     """
     kayak
     """
-    Given I run `palindrome < file.txt`
+    Given I run `palindrome` interactively
+    Given I pipe in the file "file.txt"
     Then the exit status should be 0
 
   Scenario: A word that isn't a palindrome in standard input
@@ -12,6 +13,7 @@ Feature: Palindrome CLI
     """
     dog
     """
-    Given I run `palindrome < file.txt`
+    Given I run `palindrome` interactively
+    Given I pipe in the file "file.txt"
     Then the exit status should be 1
     
