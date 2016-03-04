@@ -1,13 +1,6 @@
-#include <iostream>
-#include <stdio.h>      /* printf */
-#include <stdlib.h>     /* div, div_t */
+#include "palindrome.h"
 
-int main(int argc, char *argv[])
-{
-  // read a string from cin
-  std::string str;
-  std::cin >> str;
-
+bool IsPalindrome(std::string str) {
   // compare the characters in the string
   // starting from the outside characters
   // and work our way inwards
@@ -15,7 +8,7 @@ int main(int argc, char *argv[])
        beginning_char_index <= str.length()/2 - 1;
        beginning_char_index++) {
     int end_char_index = str.length() - 1 - beginning_char_index;
-    if (str[beginning_char_index] != str[end_char_index]) return 1;
+    if (str[beginning_char_index] != str[end_char_index]) return false;
   };
-  return 0;
+  return true;
 }

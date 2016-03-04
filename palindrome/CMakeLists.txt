@@ -1,7 +1,21 @@
 cmake_minimum_required(VERSION 2.8)
 
-project(palindromeProject)
+project(palindrome_project)
 
 enable_testing()
 
-add_executable(palindrome src/palindrome.cc)
+set(palindrome_library_source_files
+    src/palindrome.h
+    src/palindrome.cc
+)
+
+# Declare the library
+add_library(palindrome_library STATIC
+    ${palindrome_library_source_files}
+)
+
+add_executable(palindrome src/main.cc)
+
+target_link_libraries(palindrome
+    palindrome_library
+)

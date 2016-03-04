@@ -1,2 +1,1 @@
-./build.sh
-./run_tests.sh
+./build.sh && ./run_tests.sh
