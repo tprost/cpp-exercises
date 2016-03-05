@@ -10,3 +10,7 @@ class Node
   Node *previous_;
   Node();
 };
+
+std::ostream &operator<<(std::ostream &os, const Node &node);
+
+std::istream &operator>>(std::istream &is, Node &node);
