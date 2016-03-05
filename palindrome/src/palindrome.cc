@@ -1,5 +1,24 @@
 #include "palindrome.h"
 
+Node::Node() {
+  next_ = NULL;
+  previous_ = NULL;
+}
+
+std::ostream &operator<<(std::ostream &os, const Node &node)
+{
+  os << node.character_;
+  return os;
+}
+
+std::istream &operator>>(std::istream &is, Node &node)
+{
+  char character;
+  is >> character;
+  node.character_ = character;
+  return is;
+}
+
 bool IsPalindrome(std::string str) {
   // compare the characters in the string
   // starting from the outside characters
@@ -19,11 +38,6 @@ bool IsPalindromeWithLinkedList(std::istream &input_stream) {
 
   bool return_value = true;
 
-  struct Node {
-    char character;
-    Node *next = NULL;
-    Node *previous = NULL;
-  };
 
   // build a linked list out of characters
   Node *first = NULL;
@@ -32,13 +46,13 @@ bool IsPalindromeWithLinkedList(std::istream &input_stream) {
   Node *node = NULL;
   while (input_stream >> character) {
     node = new Node;
-    node->character = character;
+    node->character_ = character;
     if (first == NULL) {
       first = node;
       last = node;
     } else {
-      last->next = node;
-      node->previous = last;
+      last->next_ = node;
+      node->previous_ = last;
       last = node;
     }
   }
@@ -50,14 +64,14 @@ bool IsPalindromeWithLinkedList(std::istream &input_stream) {
   Node *inner = first;
   while (return_value &&
          outer != inner &&
-         inner->next != NULL &&
-         outer->previous != NULL &&
-         inner->next != outer) {
-    if (outer->character != inner->character) {
+         inner->next_ != NULL &&
+         outer->previous_ != NULL &&
+         inner->next_ != outer) {
+    if (outer->character_ != inner->character_) {
       return_value = false;
     } else {
-      outer = outer->previous;
-      inner = inner->next;
+      outer = outer->previous_;
+      inner = inner->next_;
     }
   }
 
@@ -66,7 +80,7 @@ bool IsPalindromeWithLinkedList(std::istream &input_stream) {
   Node *delete_this_node = first;
   while (node != NULL) {
     delete_this_node = node;
-    node = node->next;
+    node = node->next_;
     delete delete_this_node;
   }
 
