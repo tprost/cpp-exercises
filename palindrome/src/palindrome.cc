@@ -1,24 +1,5 @@
 #include "palindrome.h"
 
-Node::Node() {
-  next_ = NULL;
-  previous_ = NULL;
-}
-
-std::ostream &operator<<(std::ostream &os, const Node &node)
-{
-  os << node.character_;
-  return os;
-}
-
-std::istream &operator>>(std::istream &is, Node &node)
-{
-  char character;
-  is >> character;
-  node.character_ = character;
-  return is;
-}
-
 bool IsPalindrome(std::string str) {
   // compare the characters in the string
   // starting from the outside characters

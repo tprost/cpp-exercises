@@ -6,6 +6,8 @@ project(palindrome_project)
 enable_testing()
 
 set(palindrome_library_source_files
+    src/node.h
+    src/node.cc
     src/palindrome.h
     src/palindrome.cc
 )
