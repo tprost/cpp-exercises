@@ -1,8 +1,9 @@
 #include "temperature_converter.h"
 
 double CelciusToFarenheit(double celcius) {
-  return 0;
+  return celcius * 1.8 + 32;
 }
+
 double FarenheitToCelcius(double farenheit) {
-  return 0;
+  return (farenheit - 32) / 1.8;
 }
