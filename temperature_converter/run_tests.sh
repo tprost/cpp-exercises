@@ -1,2 +1,2 @@
 cd bin
-make test
+ctest -V
