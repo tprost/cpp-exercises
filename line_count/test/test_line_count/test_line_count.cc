@@ -14,9 +14,11 @@ void LineCountTest::SetUp() {};
 void LineCountTest::TearDown() {};
 
 TEST_F(LineCountTest, ThreeLinesInInputStream) {
-  std::istringstream input_string_stream("pants\nhello");
+  std::ostringstream output_string_stream;
+  output_string_stream << "hello" << '\n' << '\n' << "test";
+  std::istringstream input_string_stream(output_string_stream.str());
   int number_of_lines = CountLines(input_string_stream);
-  EXPECT_EQ(number_of_lines, 2);
+  EXPECT_EQ(number_of_lines, 3);
 }
 
 TEST_F(LineCountTest, ZeroLinesInInputStream) {

@@ -6,10 +6,14 @@
 // has only one newline character and ends
 // with the newline character
 int CountLines(std::istream &input_stream) {
-  // int number_of_lines = 0;
+  int number_of_lines = 0;
+  std::string line;
+  while (std::getline(input_stream, line)) {
+    number_of_lines++;
+  }
   // char character;
-  // while (output_stream >> character) {
-  // if (character == '\n') number_of_lines++;
+  // while (input_stream.get(character)) {
+  //   if (character == '\n') number_of_lines++;
   // }
-  return 0;
+  return number_of_lines;
 }
