@@ -7,8 +7,8 @@ G++ = g++
 G++_FLAGS = -c -Wall -I $(GOOGLE_TEST_INCLUDE)
 LD_FLAGS = -L /usr/local/lib -l $(GOOGLE_TEST_LIB) -l pthread
 
-OBJECTS = main.o string_compare.o
-TARGET = string_compare
+OBJECTS = main.o 2_sample_unit_test/string_compare.o
+TARGET = 2_sample_unit_test/string_compare
 
 build: $(TARGET)
 
@@ -22,6 +22,6 @@ clean:
 	rm -f $(TARGET) $(OBJECTS)
 
 test: build
-	./string_compare
+	./2_sample_unit_test/string_compare
 
 .PHONY: build clean

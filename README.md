@@ -1,1 +1,1 @@
-a repository for lots of simple little C++ exercises
+ repository for lots of simple little C++ exercises
